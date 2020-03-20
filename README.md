@@ -12,6 +12,7 @@ A ROS package that can detect [AprilTags](https://april.eecs.umich.edu/software/
   - [Installation of apriltag_ros](#installation-of-apriltag_ros)
     - [Install apriltag_ros](#install-apriltag_ros)
     - [Test apriltag-ros](#test-apriltag_ros)
+- [Usage](#usage)
 - [References](#references)
 
 ## Requirements
@@ -141,6 +142,11 @@ A tutorial of implementing detection in a video stream is available [here](http:
    View the **/tag_detections_image** (image topic) in **rviz** like [here](https://github.com/Zhengro/kinect_tag_detection/blob/master/rviz_tag_detections_image.png).
    
    Press Ctrl-C to terminate each terminal.
+   
+## Usage
+
+(To do) subscribe topic of detected tag images (id, four corners, the center point) and publish the processed(?) info.
+
 ## References
 
 * [libfreenect2: Release 0.2](https://github.com/OpenKinect/libfreenect2)
