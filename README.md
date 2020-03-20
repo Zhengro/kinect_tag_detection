@@ -102,11 +102,18 @@ rosdep install --from-paths src --ignore-src -r -y                 # Install any
 catkin build apriltag_ros --cmake-args -DCMAKE_C_FLAGS="-std=c99"  # Build apriltag_ros
 ```
 #### Test apriltag_ros
-A tutorial of implementing detection in a video stream is available [here](http://wiki.ros.org/apriltag_ros/Tutorials/Detection%20in%20a%20video%20stream). In short, there are two steps:
+
+A tutorial of implementing detection in a video stream is available [here](http://wiki.ros.org/apriltag_ros/Tutorials/Detection%20in%20a%20video%20stream). In short, there are three steps:
+
+0. Prepare AprilTags
+   
+   Scale up the [tags](https://github.com/AprilRobotics/apriltag-imgs/tree/master/tagStandard52h13) in your favorite editor and print them out. 
 
 1. Parameter setup
-
-   Three files requires modification. The working ones can be found:
+  
+   Always make sure the corresponding values match your actual tags.
+   
+   Three files requires modification. The working examples can be found:
    - [config/settings.yaml](https://github.com/Zhengro/kinect_tag_detection/blob/master/apriltag_ros/config/settings.yaml)
    - [config/tags.yaml](https://github.com/Zhengro/kinect_tag_detection/blob/master/apriltag_ros/config/tags.yaml)
    - [launch/continuous_detection.launch](https://github.com/Zhengro/kinect_tag_detection/blob/master/apriltag_ros/launch/continuous_detection.launch)
@@ -122,13 +129,15 @@ A tutorial of implementing detection in a video stream is available [here](http:
    mv ~/continuous_detection.launch ~/catkin_ws/src/apriltag_ros/apriltag_ros/launch/
    ```
 2. Run the detector
+   
+   Enable image streaming and prepare **rviz**, i.e., go to step 2 (Use rviz) in [Test iai_kinect2](#test-iai_kinect2).
 
-   Enable image streaming via step 1 in [Test iai_kinect2](#test-iai_kinect2), then open a second terminal and run:
+   Then open a terminal for **apriltag_ros**:
    ```
    roslaunch apriltag_ros continuous_detection.launch
    ```
    
-   View the **/tag_detections_image** (image topic) in **rviz**, i.e., go to step 2 in [Test iai_kinect2](#test-iai_kinect2).
+   View the **/tag_detections_image** (image topic) in **rviz** like [here](https://github.com/Zhengro/kinect_tag_detection/blob/master/rviz_tag_detections_image.png).
    
    Press Ctrl-C to terminate each terminal.
 ## References
