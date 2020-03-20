@@ -16,7 +16,7 @@ A ROS package that can detect [AprilTags](https://april.eecs.umich.edu/software/
 
 ## Requirements
 * Kinect v2 sensor (e.g., Kinect for Windows)
-* Ros machine (e.g., indigo) with USB 3.0 port
+* ROS machine (e.g., indigo) with USB 3.0 port
 * Printed AprilTags (e.g., from [Tag Family](https://github.com/AprilRobotics/apriltag-imgs) 'tagStandard41h12')
 
 ## Installation
@@ -142,3 +142,8 @@ A tutorial of implementing detection in a video stream is available [here](http:
    
    Press Ctrl-C to terminate each terminal.
 ## References
+
+* [libfreenect2: Release 0.2](https://github.com/OpenKinect/libfreenect2)
+* [IAI Kinect2](https://github.com/code-iai/iai_kinect2)
+* [RViz](https://github.com/ros-visualization/rviz)
+* [apriltag_ros](https://github.com/AprilRobotics/apriltag_ros)
