@@ -113,6 +113,7 @@ A tutorial of implementing detection in a video stream is available [here](http:
    
    Update the local files with them, run:
    ```
+   cd ~
    wget https://raw.github.com/Zhengro/kinect_tag_detection/master/apriltag_ros/config/settings.yaml
    mv ~/settings.yaml ~/catkin_ws/src/apriltag_ros/apriltag_ros/config/
    wget https://raw.github.com/Zhengro/kinect_tag_detection/master/apriltag_ros/config/tags.yaml
@@ -124,7 +125,7 @@ A tutorial of implementing detection in a video stream is available [here](http:
 
    Enable image streaming via step 1 in [Test iai_kinect2](#test-iai_kinect2), then open a second terminal and run:
    ```
-   roslaunch apriltags2_ros continuous_detection.launch
+   roslaunch apriltag_ros continuous_detection.launch
    ```
    
    View the **/tag_detections_image** (image topic) in **rviz**, i.e., go to step 2 in [Test iai_kinect2](#test-iai_kinect2).
