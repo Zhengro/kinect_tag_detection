@@ -22,9 +22,10 @@ A ROS package that can detect [AprilTags](https://april.eecs.umich.edu/software/
 ## Installation
 ### Installation of iai_kinect2
 #### Install libfreenect2
-1. Follow the [steps](https://github.com/OpenKinect/libfreenect2) until **build** step.
+1. Follow the [steps](https://github.com/OpenKinect/libfreenect2#linux) until **build** step.
 2. To **build**, run:
 ```
+cd ~/libfreenect2
 mkdir build && cd build
 cmake .. -DCMAKE_INSTALL_PREFIX=$HOME/freenect2 -DENABLE_CXX11=ON
 make
@@ -37,7 +38,7 @@ Connect Kinect v2 sensor and run:
 ```
 cd ~/libfreenect2/build
 ./bin/Protonect cl                                                 # Test OpenCL support
-./bin/Protonect gl                                                 # Test OpenCL support
+./bin/Protonect gl                                                 # Test OpenGL support
 ./bin/Protonect cpu                                                # Test CPU support
 ```
 #### Install iai_kinect2
@@ -48,7 +49,7 @@ source /opt/ros/$ROS_DISTRO/setup.bash                             # Source your
 mkdir -p ~/catkin_ws/src                                           # Make a new catkin workspace if no one exists
 cd ~/catkin_ws/src                                                 # Navigate to the source space
 ```
-2. Follow the [steps](https://github.com/code-iai/iai_kinect2) until **catkin_make** step.
+2. Follow the [steps](https://github.com/code-iai/iai_kinect2#install) until **catkin_make** step.
 3. To **build**, instead of **catkin_make** run:
 ```
 catkin build iai_kinect2
@@ -89,10 +90,10 @@ Before the next installation please make sure **[kinect2_bridge](https://github.
   ```
   rosrun rviz rviz
   ```
-  Click 'Add' and create visualization by choosing one image topic shown in the list (an example is [here](https://github.com/Zhengro/kinect_tag_detection/blob/master/rviz_add_by_topic.png)). Press Ctrl-C to terminate each terminal.
+  Click 'Add' at the bottom left and create visualization by choosing one image topic shown in the list (an example is [here](https://github.com/Zhengro/kinect_tag_detection/blob/master/rviz_add_by_topic.png)). Press Ctrl-C to terminate each terminal.
 ### Installation of apriltag_ros
 #### Install apriltag_ros
-You can follow the [steps](https://github.com/AprilRobotics/apriltag_ros) or directly run:
+You can follow the [steps](https://github.com/AprilRobotics/apriltag_ros#quickstart) or directly run:
 ```
 cd ~/catkin_ws/src                                                 # Navigate to the source space
 git clone https://github.com/AprilRobotics/apriltag.git            # Clone Apriltag library
