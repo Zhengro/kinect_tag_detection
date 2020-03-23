@@ -145,7 +145,8 @@ A tutorial of implementing detection in a video stream is available [here](http:
    
 ## Usage
 
-Follow the steps in [Test apriltag_ros](#test-apriltag_ros) to run the detector. Download some scripts for different functions.
+Follow the steps in [Test apriltag_ros](#test-apriltag_ros) to run the detector. Then, download some scripts for different functions.
+
 1. To check camera info, run:
 ```
 cd ~/catkin_ws/src/iai_kinect2/kinect2_bridge/
@@ -164,7 +165,7 @@ wget https://raw.github.com/Zhengro/kinect_tag_detection/master/kinect2_bridge/s
 ```
 rosrun kinect2_bridge kinect2_image_subscriber.py
 ```
-3. To extract detected tag ids and then republish them as a new topic, run:
+3. To extract detected tag ids and then republish them to a new topic, run:
 ```
 cd ~/catkin_ws/src/apriltag_ros/apriltag_ros/scripts/
 wget https://raw.github.com/Zhengro/kinect_tag_detection/master/apriltag_ros/scripts/tag_ids_publisher.py
@@ -172,7 +173,7 @@ wget https://raw.github.com/Zhengro/kinect_tag_detection/master/apriltag_ros/scr
 ```
 rosrun apriltag_ros tag_ids_publisher.py
 ```
-4. (TO DO: To extract detected tag poses and then republish them as a new topic)
+4. (TO DO: To extract detected tag poses and then republish them to a new topic)
 
 ## References
 
