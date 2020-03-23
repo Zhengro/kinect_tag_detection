@@ -145,7 +145,34 @@ A tutorial of implementing detection in a video stream is available [here](http:
    
 ## Usage
 
-(To do) subscribe topic of detected tag images (id, four corners, the center point) and publish the processed(?) info.
+Follow the steps in [Test apriltag_ros](#test-apriltag_ros) to run the detector. Download some scripts for different functions.
+1. To check camera info, run:
+```
+cd ~/catkin_ws/src/iai_kinect2/kinect2_bridge/
+mkdir scripts & cd scripts
+wget https://raw.github.com/Zhengro/kinect_tag_detection/master/kinect2_bridge/scripts/kinect2_caminfo_subscriber.py
+```
+```
+rosrun kinect2_bridge kinect2_caminfo_subscriber.py
+```
+2. To check received color image with opencv, run:
+```
+cd ~/catkin_ws/src/iai_kinect2/kinect2_bridge/
+mkdir scripts & cd scripts
+wget https://raw.github.com/Zhengro/kinect_tag_detection/master/kinect2_bridge/scripts/kinect2_image_subscriber.py
+```
+```
+rosrun kinect2_bridge kinect2_image_subscriber.py
+```
+3. To extract detected ids and then republish, run:
+```
+cd ~/catkin_ws/src/apriltag_ros/apriltag_ros/scripts/
+wget https://raw.github.com/Zhengro/kinect_tag_detection/master/apriltag_ros/scripts/tag_ids_publisher.py
+```
+```
+rosrun apriltag_ros tag_ids_publisher.py
+```
+4. (TO DO)
 
 ## References
 
