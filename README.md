@@ -113,12 +113,17 @@ A tutorial of implementing detection in a video stream is available [here](http:
 
 1. Parameter setup
   
-   Always make sure the corresponding values match your actual tags.
+   Always make sure the corresponding values match your actual tags and camera.
    
-   Three files requires modification. The working examples can be found:
+   Two files related to tags require modification. The working examples can be found:
    - [config/settings.yaml](https://github.com/Zhengro/kinect_tag_detection/blob/master/apriltag_ros/config/settings.yaml)
    - [config/tags.yaml](https://github.com/Zhengro/kinect_tag_detection/blob/master/apriltag_ros/config/tags.yaml)
+   
+   One file related to camera requires modification. A working example is as below:
    - [launch/continuous_detection.launch](https://github.com/Zhengro/kinect_tag_detection/blob/master/apriltag_ros/launch/continuous_detection.launch)
+     - "camera_name" should be one of the three classes of topics from **kinect2_bridge**: "/kinect2/hd", "/kinect2/qhd", and "/kinect2/sd".
+     - "camera_frame" is "frame_id" that can be found by subscribing and checking corresponding CameraInfo type topic (e.g., "/kinect2/qhd/camera_info"). Follow the steps in [Usage](usage) to check camera info.
+     - "image_topic" also has multiple [options](https://github.com/code-iai/iai_kinect2/tree/master/kinect2_bridge#topics) (e.g., "image_color").
    
    Update the local files with them, run:
    ```
@@ -145,7 +150,36 @@ A tutorial of implementing detection in a video stream is available [here](http:
    
 ## Usage
 
-(To do) subscribe topic of detected tag images (id, four corners, the center point) and publish the processed(?) info.
+Follow the steps in [Test apriltag_ros](#test-apriltag_ros) to run the detector. Then, download some scripts for different functions.
+
+1. To check camera info, run:
+   ```
+   cd ~/catkin_ws/src/iai_kinect2/kinect2_bridge/
+   mkdir scripts & cd scripts
+   wget https://raw.github.com/Zhengro/kinect_tag_detection/master/kinect2_bridge/scripts/kinect2_caminfo_subscriber.py
+   ```
+   The default subscribed topic is "/kinect2/qhd/camera_info". Depending on your choice of resolution, you may change "qhd" to "hd" or "sd". Then run: 
+   ```
+   rosrun kinect2_bridge kinect2_caminfo_subscriber.py
+   ```
+2. To check received color image with opencv, run:
+   ```
+   cd ~/catkin_ws/src/iai_kinect2/kinect2_bridge/
+   mkdir scripts & cd scripts
+   wget https://raw.github.com/Zhengro/kinect_tag_detection/master/kinect2_bridge/scripts/kinect2_image_subscriber.py
+   ```
+   ```
+   rosrun kinect2_bridge kinect2_image_subscriber.py
+   ```
+3. To extract detected tag ids and then republish them to a new topic, run:
+   ```
+   cd ~/catkin_ws/src/apriltag_ros/apriltag_ros/scripts/
+   wget https://raw.github.com/Zhengro/kinect_tag_detection/master/apriltag_ros/scripts/tag_ids_publisher.py
+   ```
+   ```
+   rosrun apriltag_ros tag_ids_publisher.py
+   ```
+4. (TO DO: To extract detected tag poses and then republish them to a new topic)
 
 ## References
 
