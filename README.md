@@ -179,7 +179,26 @@ Follow the steps in [Test apriltag_ros](#test-apriltag_ros) to run the detector.
    ```
    rosrun apriltag_ros tag_ids_publisher.py
    ```
-4. (TO DO: To extract detected tag poses and then republish them to a new topic)
+4. To extract detected tag positions and then republish them to a new topic, run:
+   ```
+   cd ~/catkin_ws/src/apriltag_ros/apriltag_ros/scripts/
+   wget https://raw.github.com/Zhengro/kinect_tag_detection/master/apriltag_ros/scripts/tag_positions_publisher.py
+   ```
+   ```
+   rosrun apriltag_ros tag_positions_publisher.py
+   ```
+5. To get relevant tag info (published into a new topic) for behavior trees, run:
+   ```
+   cd ~/catkin_ws/src/apriltag_ros/apriltag_ros/scripts/
+   wget https://raw.github.com/Zhengro/kinect_tag_detection/master/apriltag_ros/scripts/tag_info_publisher.py
+   cd ~/catkin_ws/src/apriltag_ros/apriltag_ros/msg/
+   wget https://raw.github.com/Zhengro/kinect_tag_detection/master/apriltag_ros/msg/TagInfo.msg
+   cd ~/catkin_ws/src/apriltag_ros/apriltag_ros/
+   wget https://raw.github.com/Zhengro/kinect_tag_detection/master/apriltag_ros/CMakeLists.txt
+   ```
+   ```
+   rosrun apriltag_ros tag_info_publisher.py
+   ```
 
 ## References
 
